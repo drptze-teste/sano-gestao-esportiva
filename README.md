@@ -1,30 +1,32 @@
-# Do Right — Landing BRASIL (doright-br)
+# Sano Gestão Esportiva — Site
 
-> ⚠️ Projeto SEPARADO. Não confundir com o `doright-fit` (landing dos expatriados).
+> ⚠️ Projeto SEPARADO. Marca própria, NÃO é o Do Right (que fica em `doright-fit` / doright.fit).
+> Nasceu como a versão BR do Do Right e virou **marca independente**: Sano Gestão Esportiva.
 
-Segunda landing page do **Do Right**, voltada ao público **do Brasil** (preços em R$, realidade local).
+Personal training **online com aulas ao vivo** (professores de verdade), público **Brasil**, preços em R$.
 
 ## O que é
-- Site estático (HTML único) hospedado no **GitHub Pages**.
-- Repo: `drptze-teste/doright-br`
-- Preview: https://drptze-teste.github.io/doright-br/
-- **`noindex`** (não aparece em buscas — evita que cliente ache esta versão com preços diferentes).
+- Site estático (HTML único) no **GitHub Pages**.
+- Repo: `drptze-teste/sano-gestao-esportiva`
+- Preview: https://drptze-teste.github.io/sano-gestao-esportiva/
+- **Indexável** (SEO próprio — tem identidade/nome próprios, não concorre com "Do Right").
 - Apelo principal: **aulas online e AO VIVO com professores**, contratáveis pelo plano **ou avulso**.
 
-## Diferenças vs. a landing principal (doright-fit / doright.fit)
-- Copy adaptada: sem ângulo de expatriado (sem fuso/exterior/cidades estrangeiras); cidades BR, moeda R$.
-- Sem seletor PT/EN (público é Brasil).
-- Preços e links de cadastro são **em reais** (próprios, diferentes dos da versão internacional).
+## Identidade visual ("esportivo e forte")
+- Paleta: grafite `#0C0E0D` + **verde-limão elétrico `#B4FF00`** + off-white `#F3F6F1`.
+- Fontes: **Anton** (títulos/logo, pesado atlético) + **Inter** (corpo).
+- Logo: wordmark **SANO** (O em lime) + tagline **GESTÃO ESPORTIVA**.
+- Distinta do Do Right (azul escuro) e do Sano Pilates (terroso/creme).
 
-## Domínio (planejado)
-`sanogestaoesportiva.com.br` — DNS no **Registro.br**. Apontar A records de Firebase (199.36.158.100) → GitHub Pages (185.199.108/109/110/111.153) e setar o custom domain no repo.
-(O app Quick Massage sai desse domínio mas continua em `agenda-quick-benesse.web.app`.)
-
-## PENDENTE
-- [ ] Preencher os **3 preços em R$** (hoje `R$ •••`)
-- [ ] Preencher os **3 links de cadastro BR** (hoje `#LINK_BASIC/PREMIUM/VIP_BR`)
-- [ ] Trocar os **depoimentos ilustrativos** (marcados "(exemplo)") por reais
-- [ ] Apontar o domínio no Registro.br
+## PENDENTE (tudo personalizado da Sano)
+- [ ] **WhatsApp próprio** (placeholder `#WHATSAPP_SANO`)
+- [ ] **3 preços em R$** (placeholder `R$ •••`)
+- [ ] **3 links de cadastro** (placeholder `#LINK_BASIC/PREMIUM/VIP_BR`)
+- [ ] **Instagram** (`#INSTAGRAM_SANO`) e **Área do Aluno** (`#AREA_ALUNO_SANO`) — definir se usa app próprio ou o mesmo
+- [ ] **Animação do hero** (mockup do app + pulso/batimento = SANO) — a construir
+- [ ] **Blog próprio** (repo + automação, etapa futura)
+- [ ] **Domínio** `sanogestaoesportiva.com.br` — DNS no Registro.br (Firebase → GitHub Pages). O Quick Massage continua em agenda-quick-benesse.web.app.
+- [ ] Trocar os **depoimentos "(exemplo)"** por reais
 
 ## Deploy
-Editar `index.html` → commit → push `main`. O GitHub Pages publica sozinho em 1-2 min.
+Editar `index.html` → commit → push `main`. GitHub Pages publica em 1-2 min.
