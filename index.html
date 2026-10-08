@@ -19,7 +19,7 @@
     --accent: #B4FF00;
     --accent-bright: #CDFF4D;
     --accent-dim: #8FCC00;
-    --gray: #596058;
+    --gray: #949B91;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -139,6 +139,50 @@
     background: var(--accent); color: var(--black); padding: 1rem 1.5rem;
     font-family: 'Anton', sans-serif; font-size: 1rem; letter-spacing: 0.1em;
     z-index: 3; box-shadow: 0 8px 24px rgba(180,255,0,0.4);
+  }
+
+  /* HERO — ANIMAÇÃO DO APP (mockup + batimento = SANO) */
+  .hp-stage { position: relative; display: flex; align-items: center; justify-content: center; height: 520px; }
+  .hp-glow { position: absolute; width: 330px; height: 330px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(180,255,0,0.20), transparent 70%);
+    filter: blur(24px); animation: hpGlow 4.5s ease-in-out infinite; }
+  @keyframes hpGlow { 0%,100% { opacity: .45; transform: scale(1); } 50% { opacity: .85; transform: scale(1.1); } }
+  .hp-phone { position: relative; width: 268px; height: 476px; border-radius: 40px;
+    background: #050605; padding: 13px; z-index: 2;
+    box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 0 9px #15181B, 0 0 50px rgba(180,255,0,.07);
+    animation: hpFloat 6s ease-in-out infinite; }
+  @keyframes hpFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+  .hp-notch { position: absolute; top: 13px; left: 50%; transform: translateX(-50%); width: 92px; height: 20px; background: #050605; border-radius: 0 0 14px 14px; z-index: 4; }
+  .hp-screen { width: 100%; height: 100%; border-radius: 28px; background: linear-gradient(180deg,#141711,#0C0E0D);
+    overflow: hidden; padding: 34px 18px 18px; display: flex; flex-direction: column; gap: 13px; }
+  .hp-hi { font-size: .72rem; color: var(--off-white); }
+  .hp-name { font-family: 'Anton', sans-serif; font-size: 1.35rem; color: var(--white); line-height: 1.05; }
+  .hp-live { display: inline-flex; align-items: center; gap: 7px; align-self: flex-start; margin-top: 2px;
+    background: rgba(180,255,0,.1); border: 1px solid rgba(180,255,0,.4); color: var(--accent);
+    font-size: .6rem; font-weight: 700; letter-spacing: .09em; padding: 5px 10px; border-radius: 100px; }
+  .hp-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: hpDot 1.3s infinite; }
+  @keyframes hpDot { 0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(180,255,0,.5); } 50% { opacity: .35; box-shadow: 0 0 0 7px rgba(180,255,0,0); } }
+  .hp-card { position: relative; background: #191D18; border: 1px solid #2A302B; border-radius: 16px; padding: 14px; }
+  .hp-card-h { font-family: 'Anton', sans-serif; font-size: 1.05rem; color: var(--white); }
+  .hp-card-sub { font-size: .72rem; color: var(--off-white); margin-top: 3px; }
+  .hp-ring { position: absolute; top: 12px; right: 12px; width: 54px; height: 54px; }
+  .hp-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .hp-ring-bg { fill: none; stroke: #2A302B; stroke-width: 7; }
+  .hp-ring-fg { fill: none; stroke: var(--accent); stroke-width: 7; stroke-linecap: round;
+    stroke-dasharray: 214; stroke-dashoffset: 214; animation: hpRing 4.5s ease-in-out infinite; }
+  @keyframes hpRing { 0% { stroke-dashoffset: 214; } 55%,100% { stroke-dashoffset: 64; } }
+  .hp-ring-pct { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: .6rem; font-weight: 800; color: var(--accent); }
+  .hp-pulse { height: 44px; display: flex; align-items: center; }
+  .hp-pulse svg { width: 100%; height: 40px; }
+  .hp-pulse-line { fill: none; stroke: var(--accent); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 310; stroke-dashoffset: 310; animation: hpPulse 3s linear infinite; filter: drop-shadow(0 0 4px rgba(180,255,0,.55)); }
+  @keyframes hpPulse { to { stroke-dashoffset: 0; } }
+  .hp-start { margin-top: auto; background: var(--accent); color: var(--black); font-weight: 800; font-size: .85rem;
+    text-align: center; padding: 12px; border-radius: 12px; animation: hpStart 2.6s ease-in-out infinite; }
+  @keyframes hpStart { 0%,100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(180,255,0,.4); } 50% { transform: scale(1.03); box-shadow: 0 10px 26px rgba(180,255,0,.22); } }
+  @media (prefers-reduced-motion: reduce) {
+    .hp-glow, .hp-phone, .hp-dot, .hp-ring-fg, .hp-pulse-line, .hp-start { animation: none; }
+    .hp-pulse-line { stroke-dashoffset: 0; } .hp-ring-fg { stroke-dashoffset: 64; }
   }
 
   /* CITIES STRIP */
@@ -316,6 +360,11 @@
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
+    /* Nav em tablet: sem quebra de linha nos botões */
+    nav { padding: 1.1rem 3vw; }
+    .nav-right { gap: 0.6rem; }
+    nav a.blog-link, nav a.login-link, nav a.cta-nav { white-space: nowrap; }
+    nav a.login-link, nav a.cta-nav { font-size: 0.8rem; padding: 0.5rem 1rem; }
     .hero { grid-template-columns: 1fr; padding-top: 7rem; gap: 2rem; }
     .hero-image { order: -1; }
     .hero-image img { height: 300px; }
@@ -333,6 +382,9 @@
   @media (max-width: 580px) {
     .included-grid { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr; }
+    .hp-stage { height: 440px; }
+    .hp-phone { width: 230px; height: 408px; }
+    .hp-glow { width: 270px; height: 270px; }
     /* Menu compacto que cabe no celular (antes estourava a largura) */
     nav { padding: 0.85rem 3.5vw; }
     .logo-svg { height: 24px; }
@@ -384,7 +436,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <p class="hero-eyebrow">🇧🇷 Aulas online e ao vivo · professores de verdade</p>
+    <p class="hero-eyebrow">Aulas online e ao vivo · professores de verdade</p>
     <h1>Treino com professor<br><em>ao vivo</em>, no seu ritmo</h1>
     <p class="hero-sub">
       Acompanhamento <em>online e ao vivo</em> com professores de verdade — não um app genérico. Contrate pelo plano ou de forma individual, conforme a sua necessidade. Treine em casa ou na academia, no horário que cabe na sua rotina.
@@ -395,7 +447,31 @@
     </div>
   </div>
   <div class="hero-image">
-    <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=900&q=85&fit=crop&auto=format" alt="Online training" onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=85&fit=crop&auto=format'">
+    <div class="hp-stage" aria-hidden="true">
+      <div class="hp-glow"></div>
+      <div class="hp-phone">
+        <div class="hp-notch"></div>
+        <div class="hp-screen">
+          <div>
+            <div class="hp-hi">Bom treino,</div>
+            <div class="hp-name">Carlos 👋</div>
+          </div>
+          <div class="hp-live"><span class="hp-dot"></span> AO VIVO · PROF. MARINA</div>
+          <div class="hp-card">
+            <div class="hp-card-h">Treino de hoje</div>
+            <div class="hp-card-sub">Força · 32 min · em casa</div>
+            <div class="hp-ring">
+              <svg viewBox="0 0 80 80"><circle class="hp-ring-bg" cx="40" cy="40" r="34"/><circle class="hp-ring-fg" cx="40" cy="40" r="34"/></svg>
+              <span class="hp-ring-pct">68%</span>
+            </div>
+          </div>
+          <div class="hp-pulse">
+            <svg viewBox="0 0 240 40" preserveAspectRatio="none"><path class="hp-pulse-line" d="M0,20 L72,20 L82,20 L90,6 L100,34 L110,20 L135,20 L146,20 L154,9 L163,31 L172,20 L240,20"/></svg>
+          </div>
+          <div class="hp-start">▶  Começar agora</div>
+        </div>
+      </div>
+    </div>
     <div class="hero-badge">💪 Acompanhamento real</div>
   </div>
 </section>
